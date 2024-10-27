@@ -8,7 +8,9 @@
 
 use crate::qdldl;
 use num_traits::Num;
-use std::cmp::Ordering;
+use core::cmp::Ordering;
+use alloc::vec::Vec;
+use alloc::vec;
 
 #[cfg_attr(not(feature = "sdp"), allow(dead_code))]
 pub(crate) trait PositionAll<T>: Iterator<Item = T> {

@@ -1,5 +1,5 @@
 use crate::algebra::*;
-use std::iter::zip;
+use core::iter::zip;
 
 impl<T: FloatT> MatrixVectorMultiply<T> for CscMatrix<T> {
     fn gemv(&self, y: &mut [T], x: &[T], a: T, b: T) {

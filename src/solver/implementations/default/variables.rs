@@ -6,6 +6,9 @@ use crate::solver::core::{
     ScalingStrategy, StepDirection,
 };
 
+use alloc::vec::Vec;
+use alloc::vec;
+
 // ---------------
 // Variables type for default problem format
 // ---------------
@@ -24,8 +27,8 @@ pub struct DefaultVariables<T> {
     pub κ: T,
 }
 
-impl<T: std::fmt::Display + std::fmt::Debug> std::fmt::Debug for DefaultVariables<T> {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl<T: core::fmt::Display + core::fmt::Debug> core::fmt::Debug for DefaultVariables<T> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(
             f,
             "x: {:?}\ns: {:?}\nz: {:?}\nτ: {:?}\nκ: {:?}\n",

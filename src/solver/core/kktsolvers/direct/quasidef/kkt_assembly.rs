@@ -4,6 +4,8 @@ use super::datamaps::*;
 use crate::algebra::*;
 use crate::solver::core::cones::*;
 use num_traits::Zero;
+use alloc::vec::Vec;
+use alloc::vec;
 
 pub(crate) fn allocate_kkt_Hsblocks<T, Z>(cones: &CompositeCone<T>) -> Vec<Z>
 where

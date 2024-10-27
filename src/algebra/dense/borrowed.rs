@@ -12,7 +12,7 @@ where
         Self {
             size: (m, n),
             data,
-            phantom: std::marker::PhantomData::<T>,
+            phantom: core::marker::PhantomData::<T>,
         }
     }
 }
@@ -25,7 +25,7 @@ where
         Self {
             size: (m, n),
             data,
-            phantom: std::marker::PhantomData::<T>,
+            phantom: core::marker::PhantomData::<T>,
         }
     }
 }

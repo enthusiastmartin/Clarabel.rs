@@ -2,6 +2,8 @@
 use super::*;
 use crate::algebra::*;
 use crate::solver::SupportedConeT;
+use alloc::vec::Vec;
+use alloc::vec;
 
 // ---------------
 // Data type for default problem presolver

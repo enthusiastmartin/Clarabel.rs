@@ -1,7 +1,8 @@
 use crate::algebra::hvcat_dim_check;
 use crate::algebra::matrix_traits::ShapedMatrix;
 use crate::algebra::MatrixConcatenationError;
-use std::cmp::max;
+use core::cmp::max;
+use alloc::vec;
 
 use crate::algebra::{BlockConcatenate, CscMatrix, FloatT, MatrixShape};
 

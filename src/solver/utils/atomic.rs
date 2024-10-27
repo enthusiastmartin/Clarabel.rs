@@ -3,8 +3,8 @@
 //
 // See: https://github.com/rust-lang/rust/issues/72353
 
-use std::sync::atomic::AtomicU64;
-pub use std::sync::atomic::Ordering;
+use core::sync::atomic::AtomicU64;
+pub use core::sync::atomic::Ordering;
 
 pub struct AtomicF64 {
     storage: AtomicU64,

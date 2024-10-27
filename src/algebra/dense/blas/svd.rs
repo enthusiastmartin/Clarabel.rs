@@ -2,7 +2,8 @@
 
 use crate::algebra::*;
 use core::cmp::min;
-use std::iter::zip;
+use core::iter::zip;
+use alloc::vec::Vec;
 
 #[derive(PartialEq, Eq)]
 #[allow(dead_code)] //QRDecomposition is not used yet

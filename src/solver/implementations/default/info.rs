@@ -1,7 +1,8 @@
 use super::*;
 use crate::algebra::*;
 use crate::solver::core::{traits::Info, SolverStatus};
-use crate::solver::traits::Variables;
+use crate::solver::core::cones::CompositeCone;
+use crate::solver::traits::{InfoPrint, Variables};
 use crate::timers::*;
 
 /// Standard-form solver type implementing the [`Info`](crate::solver::core::traits::Info) and [`InfoPrint`](crate::solver::core::traits::InfoPrint) traits
@@ -42,6 +43,16 @@ where
     pub fn new() -> Self {
         Self::default()
     }
+}
+
+impl<T> InfoPrint<T> for DefaultInfo<T>
+
+where
+    T: FloatT,
+{
+    type D = DefaultProblemData<T>;
+    type C = CompositeCone<T>;
+    type SE = DefaultSettings<T>;
 }
 
 impl<T> Info<T> for DefaultInfo<T>

@@ -1,5 +1,7 @@
 #![allow(non_snake_case)]
 use crate::algebra::*;
+use alloc::vec::Vec;
+use alloc::vec;
 
 // ---------------
 // equilibration data

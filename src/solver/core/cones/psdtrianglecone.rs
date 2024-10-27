@@ -1,5 +1,6 @@
 use super::*;
 use crate::algebra::*;
+use alloc::vec::Vec;
 
 // ------------------------------------
 // Positive Semidefinite Cone (Scaled triangular form)

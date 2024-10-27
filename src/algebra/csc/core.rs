@@ -4,7 +4,9 @@ use crate::algebra::permute;
 use crate::algebra::utils::sortperm_by;
 use crate::algebra::{Adjoint, MatrixShape, ShapedMatrix, SparseFormatError, Symmetric};
 use num_traits::Num;
-use std::iter::{repeat, zip};
+use core::iter::{repeat, zip};
+use alloc::vec::Vec;
+use alloc::vec;
 
 #[cfg(feature = "serde")]
 use serde::{de::DeserializeOwned, Deserialize, Serialize};
@@ -42,7 +44,7 @@ use serde::{de::DeserializeOwned, Deserialize, Serialize};
 ///
 
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
-#[serde(bound = "T: Serialize + DeserializeOwned")]
+//#[serde(bound = "T: Serialize + DeserializeOwned")]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct CscMatrix<T = f64> {
     /// number of rows

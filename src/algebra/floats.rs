@@ -1,6 +1,6 @@
 #![allow(non_snake_case)]
 use num_traits::{Float, FloatConst, FromPrimitive, NumAssign};
-use std::fmt::{Debug, Display, LowerExp};
+use core::fmt::{Debug, Display, LowerExp};
 
 #[cfg(feature = "sdp")]
 use crate::algebra::dense::BlasFloatT;
@@ -103,7 +103,7 @@ macro_rules! impl_as_FloatT {
     ($ty:ty, $ident:ident) => {
         impl<T> AsFloatT<T> for $ty
         where
-            T: std::ops::Mul<T, Output = T> + FromPrimitive + 'static,
+            T: core::ops::Mul<T, Output = T> + FromPrimitive + 'static,
         {
             #[inline]
             fn as_T(&self) -> T {

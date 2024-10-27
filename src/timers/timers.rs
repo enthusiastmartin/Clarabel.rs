@@ -1,5 +1,7 @@
-use std::collections::HashMap;
-use std::ops::{Deref, DerefMut};
+use alloc::collections::BTreeMap;
+use core::ops::{Deref, DerefMut};
+use alloc::format;
+use alloc::vec::Vec;
 
 cfg_if::cfg_if! {
     if #[cfg(feature="wasm")] {
@@ -58,10 +60,10 @@ impl InnerTimer {
 }
 
 #[derive(Debug, Default)]
-struct SubTimersMap(HashMap<&'static str, InnerTimer>);
+struct SubTimersMap(BTreeMap<&'static str, InnerTimer>);
 
 impl Deref for SubTimersMap {
-    type Target = HashMap<&'static str, InnerTimer>;
+    type Target = BTreeMap<&'static str, InnerTimer>;
     fn deref(&self) -> &Self::Target {
         &self.0
     }
@@ -112,7 +114,7 @@ impl SubTimersMap {
     pub fn print(&self, depth: u8) {
         for (key, val) in self.iter() {
             let tabs = format!("{: <1$}", "", 4 * depth as usize);
-            println!("{}{:} : {:?}", tabs, *key, val.elapsed);
+            //println!("{}{:} : {:?}", tabs, *key, val.elapsed);
             val.subtimers.print(depth + 1);
         }
     }

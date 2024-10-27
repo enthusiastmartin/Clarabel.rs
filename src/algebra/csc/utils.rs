@@ -5,7 +5,7 @@
 
 use crate::algebra::{CscMatrix, MatrixShape, MatrixTriangle};
 use num_traits::Num;
-use std::iter::zip;
+use core::iter::zip;
 
 impl<T> CscMatrix<T>
 where

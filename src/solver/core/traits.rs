@@ -151,6 +151,7 @@ where
     type C: Cone<T>;
     type SE: Settings<T>;
 
+    /*
     /// Print the solver configuration, e.g. settings etc.
     /// This function is called once at the start of the solve.
     fn print_configuration(
@@ -169,6 +170,8 @@ where
     /// Print solver final status and other exit information.   Called at
     /// solver termination.
     fn print_footer(&self, settings: &Self::SE) -> std::io::Result<()>;
+
+     */
 }
 
 /// Internal information for the solver to monitor progress and check for termination.

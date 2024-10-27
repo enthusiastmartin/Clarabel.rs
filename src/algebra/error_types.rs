@@ -1,4 +1,4 @@
-use thiserror::Error;
+use thiserror_no_std::Error;
 
 /// Error type returned by matrix concatenation operations.
 #[derive(Error, Debug)]

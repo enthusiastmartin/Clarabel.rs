@@ -1,5 +1,6 @@
 use crate::algebra::*;
-use std::ops::{Index, IndexMut};
+use core::ops::{Index, IndexMut};
+use alloc::vec::Vec;
 
 // core dense matrix type for owned and borrowed matrices
 #[derive(Debug, Clone, PartialEq)]
@@ -12,7 +13,7 @@ where
     pub size: (usize, usize),
     /// vector of data in column major formmat
     pub data: S,
-    pub(crate) phantom: std::marker::PhantomData<T>,
+    pub(crate) phantom: core::marker::PhantomData<T>,
 }
 
 pub(crate) type Matrix<T> = DenseStorageMatrix<Vec<T>, T>;

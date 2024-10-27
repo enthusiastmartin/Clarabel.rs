@@ -1,7 +1,7 @@
 #![allow(non_snake_case)]
 
 use crate::algebra::*;
-use std::ops::{Index, IndexMut};
+use core::ops::{Index, IndexMut};
 
 // 3x3 Dense matrix types are restricted to the crate
 // NB: Implements a symmetric 3x3 type to support

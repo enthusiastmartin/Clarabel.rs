@@ -3,6 +3,8 @@
 use super::*;
 use crate::solver::core::cones::*;
 use enum_dispatch::*;
+use alloc::vec;
+use alloc::vec::Vec;
 
 #[enum_dispatch(SparseExpansionMapTrait)]
 pub(crate) enum SparseExpansionMap {

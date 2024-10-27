@@ -1,3 +1,5 @@
+#![cfg(feature = "std")]
+
 #[cfg(feature = "sdp")]
 use crate::solver::chordal::ChordalInfo;
 

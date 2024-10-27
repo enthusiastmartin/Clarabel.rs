@@ -4,7 +4,6 @@ use super::traits::*;
 use crate::algebra::*;
 use crate::stdio;
 use crate::timers::*;
-use std::io::Write;
 
 // ---------------------------------
 // Solver status type
@@ -84,14 +83,15 @@ enum StrategyCheckpoint {
     Fail,                    // Checkpoint found a problem but no more ScalingStrategies to try
 }
 
-impl std::fmt::Display for SolverStatus {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+impl core::fmt::Display for SolverStatus {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         write!(f, "{:?}", self)
     }
 }
 
 /// JSON file read/write trait for solver data.
 /// Only available with the "serde" feature enabled.
+#[cfg(feature = "std")]
 #[cfg(feature = "serde")]
 pub trait SolverJSONReadWrite: Sized {
     fn write_to_file(&self, file: &mut std::fs::File) -> Result<(), std::io::Error>;
@@ -122,6 +122,7 @@ pub struct Solver<D, V, R, K, C, I, SO, SE> {
     pub timers: Option<Timers>,
 }
 
+#[cfg(feature = "std")]
 fn _print_banner(is_verbose: bool) -> std::io::Result<()> {
     if !is_verbose {
         return std::io::Result::Ok(());
@@ -204,9 +205,9 @@ where
         // solver release info, solver config
         // problem dimensions, cone types etc
         notimeit! {timers; {
-            _print_banner(self.settings.core().verbose).unwrap();
-            self.info.print_configuration(&self.settings, &self.data, &self.cones).unwrap();
-            self.info.print_status_header(&self.settings).unwrap();
+            //_print_banner(self.settings.core().verbose).unwrap();
+            //self.info.print_configuration(&self.settings, &self.data, &self.cones).unwrap();
+            //self.info.print_status_header(&self.settings).unwrap();
         }}
 
         self.info.reset(&mut timers);
@@ -251,7 +252,7 @@ where
                 &self.residuals,&timers);
 
             notimeit!{timers; {
-                self.info.print_status(&self.settings).unwrap();
+                //self.info.print_status(&self.settings).unwrap();
             }}
 
             let isdone = self.info.check_termination(&self.residuals, &self.settings, iter);
@@ -384,7 +385,7 @@ where
         // to recapture the scalars and print one last line
         if α == T::zero() {
             self.info.save_scalars(μ, α, σ, iter);
-            notimeit! {timers; {self.info.print_status(&self.settings).unwrap();}}
+            //notimeit! {timers; {self.info.print_status(&self.settings).unwrap();}}
         }
 
         timeit! {timers => "post-process"; {
@@ -398,7 +399,7 @@ where
         self.info.finalize(&mut timers);
         self.solution.finalize(&self.info);
 
-        self.info.print_footer(&self.settings).unwrap();
+        //self.info.print_footer(&self.settings).unwrap();
 
         //stow the timers back into Option in the solver struct
         self.timers.replace(timers);

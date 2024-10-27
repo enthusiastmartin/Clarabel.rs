@@ -3,7 +3,8 @@ use super::DefaultSolver;
 use crate::algebra::*;
 use core::iter::Zip;
 use core::slice::Iter;
-use thiserror::Error;
+use thiserror_no_std::Error;
+use alloc::vec::Vec;
 
 /// Error type returned by user data update utilities, e.g. [`check_format`](crate::algebra::CscMatrix::check_format) utility.
 #[derive(Error, Debug)]

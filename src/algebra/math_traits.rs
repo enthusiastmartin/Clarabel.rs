@@ -2,6 +2,8 @@
 // through these core traits, which are implemented generically
 // for floats of type FloatT.
 
+use alloc::vec::Vec;
+
 /// Scalar operations on [`FloatT`](crate::algebra::FloatT)
 
 pub trait ScalarMath {

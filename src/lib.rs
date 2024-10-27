@@ -52,9 +52,14 @@
 //! # License
 //!
 //! Licensed under Apache License, Version 2.0.  [LICENSE](https://github.com/oxfordcontrol/Clarabel.rs/blob/main/LICENSE.md)
+//!
+#![allow(confusable_idents)]
+
+#![cfg_attr(not(feature = "std"), no_std)]
+
+extern crate alloc;
 
 //Rust hates greek characters
-#![allow(confusable_idents)]
 
 const VERSION: &str = env!("CARGO_PKG_VERSION");
 

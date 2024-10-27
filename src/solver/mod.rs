@@ -40,6 +40,7 @@ pub use crate::solver::core::CoreSettings;
 
 // read/write types if enabled
 #[cfg(feature = "serde")]
+#[cfg(feature = "std")]
 pub use crate::solver::core::SolverJSONReadWrite;
 
 //If we had implementations for multiple alternative

@@ -15,14 +15,14 @@ categories = ["mathematics"]
 resolver = "1"     
 
 [dependencies]
-lazy_static    = "1.4"
-num-traits     = "0.2"
-derive_builder = "0.11"
-enum_dispatch  = "0.3.8"
-amd            = "0.2.2"
-thiserror      = "1.0"
-cfg-if         = "1.0"
-itertools      = "0.11"
+lazy_static    = { version = "1.4", default-features = false }
+num-traits     = { version = "0.2", default-features = false }
+derive_builder = { version = "0.11", default-features = false }
+enum_dispatch  = { version = "0.3.8", default-features = false }
+amd            = { version = "0.2.2", default-features = false }
+cfg-if         = { version = "1.0", default-features = false }
+itertools      = { version = "0.11", default-features = false }
+thiserror-no-std = { version = "2.0.2", default-features = false }
 
 # -------------------------------
 # features

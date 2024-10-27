@@ -1,6 +1,9 @@
 use crate::algebra::*;
 use crate::solver::core::traits::Settings;
 use derive_builder::Builder;
+use alloc::format;
+use alloc::string::String;
+use crate::alloc::string::ToString;
 
 #[cfg(feature = "serde")]
 use serde::{de::DeserializeOwned, Deserialize, Serialize};
@@ -8,9 +11,10 @@ use serde::{de::DeserializeOwned, Deserialize, Serialize};
 /// Standard-form solver type implementing the [`Settings`](crate::solver::core::traits::Settings) trait
 
 #[derive(Builder, Debug, Clone)]
+#[builder(no_std)]
 #[builder(build_fn(validate = "Self::validate"))]
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
-#[serde(bound = "T: Serialize + DeserializeOwned")]
+//#[serde(bound = "T: Serialize + DeserializeOwned")]
 pub struct DefaultSettings<T: FloatT> {
     ///maximum number of iterations
     #[builder(default = "200")]

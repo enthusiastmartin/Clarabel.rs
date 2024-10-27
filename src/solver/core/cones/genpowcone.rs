@@ -1,7 +1,10 @@
 use super::*;
 use crate::algebra::*;
 use itertools::izip;
-use std::iter::zip;
+use core::iter::zip;
+use alloc::vec::Vec;
+use alloc::vec;
+use alloc::boxed::Box;
 
 // -------------------------------------
 // Generalized Power Cone
@@ -231,7 +234,7 @@ where
         //simultaneously using "work" and the closures defined
         //below produces a borrow check error, so temporarily
         //move "work" out of self
-        let mut work = std::mem::take(&mut self.data.work);
+        let mut work = core::mem::take(&mut self.data.work);
 
         let is_prim_feasible_fcn = |s: &[T]| -> bool { self.is_primal_feasible(s) };
         let is_dual_feasible_fcn = |s: &[T]| -> bool { self.is_dual_feasible(s) };
@@ -247,7 +250,7 @@ where
 
     fn compute_barrier(&mut self, z: &[T], s: &[T], dz: &[T], ds: &[T], α: T) -> T {
         let mut barrier = T::zero();
-        let mut work = std::mem::take(&mut self.data.work);
+        let mut work = core::mem::take(&mut self.data.work);
 
         work.waxpby(T::one(), s, α, ds);
         barrier += self.barrier_primal(&work);
@@ -318,7 +321,7 @@ where
 
         // can't use "work" here because it was already
         // used to construct the argument s in some cases
-        let mut g = std::mem::take(&mut self.data.work_pb);
+        let mut g = core::mem::take(&mut self.data.work_pb);
 
         self.gradient_primal(&mut g, s);
         g.negate(); //-g(s)

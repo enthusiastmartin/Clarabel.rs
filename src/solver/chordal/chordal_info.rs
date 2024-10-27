@@ -1,6 +1,7 @@
 #![allow(non_snake_case)]
 
-use std::iter::zip;
+use core::iter::zip;
+use alloc::vec::Vec;
 
 // PJG import here for ConeRanges is weird.   Why is it
 // not coming with SupportedConeT?

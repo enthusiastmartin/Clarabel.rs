@@ -5,6 +5,9 @@ use crate::algebra::triangular_number;
 #[cfg(feature = "serde")]
 use serde::{Deserialize, Serialize};
 
+use alloc::vec::Vec;
+use alloc::vec;
+
 // ---------------------------------------------------
 // We define some machinery here for enumerating the
 // different cone types that can live in the composite cone
@@ -70,11 +73,11 @@ impl<T> SupportedConeT<T> {
     }
 }
 
-impl<T> std::fmt::Display for SupportedConeT<T>
+impl<T> core::fmt::Display for SupportedConeT<T>
 where
     T: FloatT,
 {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         write!(f, "{}", &self.as_tag().as_str())
     }
 }
@@ -132,7 +135,7 @@ where
 // -------------------------------------
 
 #[allow(clippy::enum_variant_names)]
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Ord, PartialOrd)]
 #[repr(u8)]
 pub(crate) enum SupportedConeTag {
     ZeroCone = 0,
@@ -212,7 +215,7 @@ pub(crate) struct RangeSupportedConesIterator<'a, T> {
 
 #[cfg_attr(not(feature = "sdp"), allow(dead_code))]
 impl<'a, T> Iterator for RangeSupportedConesIterator<'a, T> {
-    type Item = std::ops::Range<usize>;
+    type Item = core::ops::Range<usize>;
 
     fn next(&mut self) -> Option<Self::Item> {
         if self.index < self.cones.len() {
@@ -251,9 +254,9 @@ fn test_cone_ranges() {
         SupportedConeT::SecondOrderConeT::<f64>(4),
     ];
 
-    let rngs: Vec<std::ops::Range<usize>> = vec![0..3, 3..3, 3..7];
+    let rngs: Vec<core::ops::Range<usize>> = vec![0..3, 3..3, 3..7];
 
-    for (rng, conerng) in std::iter::zip(rngs.iter(), cones.rng_cones_iter()) {
+    for (rng, conerng) in core::iter::zip(rngs.iter(), cones.rng_cones_iter()) {
         assert_eq!(*rng, conerng);
     }
 }

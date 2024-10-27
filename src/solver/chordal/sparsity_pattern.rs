@@ -1,6 +1,7 @@
 #![allow(non_snake_case)]
 use crate::algebra::*;
 use crate::solver::chordal::*;
+use alloc::vec::Vec;
 
 // ---------------------------
 // Struct to hold clique and sparsity data for a constraint

@@ -2,8 +2,10 @@
 use crate::algebra::*;
 use core::cmp::{max, min};
 use derive_builder::Builder;
-use std::iter::zip;
-use thiserror::Error;
+use core::iter::zip;
+use thiserror_no_std::Error;
+use alloc::vec::Vec;
+use alloc::vec;
 
 /// Error codes returnable from [`QDLDLFactorisation`](QDLDLFactorisation) factor operations
 
@@ -24,6 +26,7 @@ pub enum QDLDLError {
 /// Required settings for [`QDLDLFactorisation`](QDLDLFactorisation)
 
 #[derive(Builder, Debug, Clone)]
+#[builder(no_std)]
 pub struct QDLDLSettings<T: FloatT> {
     #[builder(default = "1.0")]
     amd_dense_scale: f64,

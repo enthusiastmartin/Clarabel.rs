@@ -1,13 +1,14 @@
 #![allow(non_snake_case)]
 use super::VertexSet;
 use crate::algebra::*;
-use std::iter::zip;
+use core::iter::zip;
+use alloc::vec::Vec;
 
 // this value used to mark root notes, i.e. ones with no parent
-pub(crate) const NO_PARENT: usize = std::usize::MAX;
+pub(crate) const NO_PARENT: usize = core::usize::MAX;
 
 // when cliques are merged, their vertices are marked thusly
-pub(crate) const INACTIVE_NODE: usize = std::usize::MAX - 1;
+pub(crate) const INACTIVE_NODE: usize = core::usize::MAX - 1;
 
 // A structure to represent and analyse the sparsity pattern of an LDL factor matrix L.
 #[derive(Debug)]

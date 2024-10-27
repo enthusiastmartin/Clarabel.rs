@@ -1,7 +1,8 @@
 #![allow(non_snake_case)]
 
 use num_traits::Num;
-use std::iter::zip;
+use core::iter::zip;
+use alloc::vec::Vec;
 
 /// Sparse vector type (internal use only at present)
 

@@ -13,7 +13,7 @@ use faer::{
 use crate::algebra::*;
 use crate::solver::core::kktsolvers::direct::DirectLDLSolver;
 use crate::solver::core::CoreSettings;
-use std::iter::zip;
+use core::iter::zip;
 
 #[derive(Debug)]
 

@@ -7,7 +7,10 @@ use super::ldlsolvers::qdldl::*;
 use super::*;
 use crate::solver::core::kktsolvers::KKTSolver;
 use crate::solver::core::{cones::*, CoreSettings};
-use std::iter::zip;
+use core::iter::zip;
+use alloc::boxed::Box;
+use alloc::vec::Vec;
+use alloc::vec;
 
 // -------------------------------------
 // KKTSolver using direct LDL factorisation
@@ -293,11 +296,11 @@ where
             if improved_ratio < stopratio {
                 //insufficient improvement.  Exit
                 if improved_ratio > T::one() {
-                    std::mem::swap(x, dx);
+                    core::mem::swap(x, dx);
                 }
                 break;
             }
-            std::mem::swap(x, dx);
+            core::mem::swap(x, dx);
         }
         //NB: "success" means only that we had a finite valued result
         true

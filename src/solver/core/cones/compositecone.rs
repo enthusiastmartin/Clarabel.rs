@@ -1,8 +1,9 @@
 use super::*;
 use crate::algebra::triangular_number;
-use std::collections::HashMap;
-use std::iter::zip;
-use std::ops::Range;
+use core::iter::zip;
+use core::ops::Range;
+use alloc::vec::Vec;
+use alloc::collections::BTreeMap;
 
 // -------------------------------------
 // default composite cone type
@@ -12,7 +13,7 @@ pub struct CompositeCone<T: FloatT = f64> {
     cones: Vec<SupportedCone<T>>,
 
     //Type count for each cone type
-    pub(crate) type_counts: HashMap<SupportedConeTag, usize>,
+    pub(crate) type_counts: BTreeMap<SupportedConeTag, usize>,
 
     //overall size of the composite cone
     pub(crate) numel: usize,
@@ -43,7 +44,7 @@ where
         // NB: ideally we could fix max capacity here,  but Enum::variant_count is not
         // yet a stable feature.  Capacity should be number of SupportedCone variants.
         // See: https://github.com/rust-lang/rust/issues/73662
-        let mut type_counts = HashMap::new();
+        let mut type_counts = BTreeMap::new();
 
         // assumed symmetric to start
         let mut _is_symmetric = true;
@@ -137,10 +138,10 @@ where
     pub fn is_empty(&self) -> bool {
         self.cones.is_empty()
     }
-    pub fn iter(&self) -> std::slice::Iter<'_, SupportedCone<T>> {
+    pub fn iter(&self) -> core::slice::Iter<'_, SupportedCone<T>> {
         self.cones.iter()
     }
-    pub fn iter_mut(&mut self) -> std::slice::IterMut<'_, SupportedCone<T>> {
+    pub fn iter_mut(&mut self) -> core::slice::IterMut<'_, SupportedCone<T>> {
         self.cones.iter_mut()
     }
     pub(crate) fn get_type_count(&self, tag: SupportedConeTag) -> usize {

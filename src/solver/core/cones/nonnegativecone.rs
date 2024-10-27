@@ -1,7 +1,9 @@
 use super::*;
 use crate::algebra::*;
 use itertools::izip;
-use std::iter::zip;
+use core::iter::zip;
+use alloc::vec::Vec;
+use alloc::vec;
 
 // -------------------------------------
 // Nonnegative Cone

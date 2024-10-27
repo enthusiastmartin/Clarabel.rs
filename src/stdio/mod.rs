@@ -1,6 +1,6 @@
 #[cfg(not(feature = "python"))]
 #[allow(unused_imports)]
-pub(crate) use std::io::{stderr, stdout};
+//pub(crate) use std::io::{stderr, stdout};
 
 // configure python specific stdout and stdin strams
 // when compiled with the python feature.   This avoids
