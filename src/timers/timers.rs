@@ -1,14 +1,28 @@
-use alloc::collections::BTreeMap;
 use core::ops::{Deref, DerefMut};
-use alloc::format;
-use alloc::vec::Vec;
+use crate::types::*;
 
+/*
 cfg_if::cfg_if! {
     if #[cfg(feature="wasm")] {
         use web_time::{Duration, Instant};
     }
     else {
         use std::time::{Duration, Instant};
+    }
+}
+
+ */
+
+use core::time::Duration;
+
+#[derive(Debug, Copy, Clone)]
+pub struct Instant;
+impl Instant {
+    pub fn now() -> Instant {
+        Instant
+    }
+    pub fn elapsed(&self) -> Duration {
+        Duration::from_secs(0)
     }
 }
         
@@ -113,7 +127,7 @@ impl SubTimersMap {
 
     pub fn print(&self, depth: u8) {
         for (key, val) in self.iter() {
-            let tabs = format!("{: <1$}", "", 4 * depth as usize);
+            //let tabs = format!("{: <1$}", "", 4 * depth as usize);
             //println!("{}{:} : {:?}", tabs, *key, val.elapsed);
             val.subtimers.print(depth + 1);
         }

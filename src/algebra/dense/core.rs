@@ -5,7 +5,7 @@
 
 use crate::algebra::*;
 use num_traits::Num;
-use alloc::vec::Vec;
+use crate::types::*;
 
 // The comment below is not a docstring since it relies on the 
 // type Matrix<T> which is not currently visible outside the crate.

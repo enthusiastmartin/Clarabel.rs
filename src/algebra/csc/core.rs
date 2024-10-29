@@ -5,8 +5,7 @@ use crate::algebra::utils::sortperm_by;
 use crate::algebra::{Adjoint, MatrixShape, ShapedMatrix, SparseFormatError, Symmetric};
 use num_traits::Num;
 use core::iter::{repeat, zip};
-use alloc::vec::Vec;
-use alloc::vec;
+use crate::types::*;
 
 #[cfg(feature = "serde")]
 use serde::{de::DeserializeOwned, Deserialize, Serialize};

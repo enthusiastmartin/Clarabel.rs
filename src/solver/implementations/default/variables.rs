@@ -6,8 +6,7 @@ use crate::solver::core::{
     ScalingStrategy, StepDirection,
 };
 
-use alloc::vec::Vec;
-use alloc::vec;
+use crate::types::*;
 
 // ---------------
 // Variables type for default problem format

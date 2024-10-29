@@ -16,20 +16,27 @@ resolver = "1"
 
 [dependencies]
 lazy_static    = { version = "1.4", default-features = false }
-num-traits     = { version = "0.2", default-features = false }
+num-traits     = { version = "0.2", default-features = false, features = ["libm"] }
 derive_builder = { version = "0.11", default-features = false }
 enum_dispatch  = { version = "0.3.8", default-features = false }
-amd            = { version = "0.2.2", default-features = false }
+amd            = { git = "https://github.com/enthusiastmartin/amd", branch = "feat/no-std", default-features = false }
 cfg-if         = { version = "1.0", default-features = false }
 itertools      = { version = "0.11", default-features = false }
 thiserror-no-std = { version = "2.0.2", default-features = false }
-
+sp-std = { git = "https://github.com/galacticcouncil/polkadot-sdk", branch = "release-polkadot-v1.11.0-patch2", default-features = false }
+sp-io = { git = "https://github.com/galacticcouncil/polkadot-sdk", branch = "release-polkadot-v1.11.0-patch2", default-features = false }
 # -------------------------------
 # features
 # -------------------------------
 
 [features]
-default = ["serde"]
+#default = ["sp-std/std", "sp-io/std"]
+default = ["std"]
+std =  ["sp-std/std", "sp-io/std"]
+
+alloc = []
+
+
 
 # enable reading / writing of problems from json files 
 serde = ["dep:serde", "dep:serde_json"]

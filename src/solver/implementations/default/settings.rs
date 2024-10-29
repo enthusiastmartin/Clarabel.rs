@@ -1,9 +1,7 @@
 use crate::algebra::*;
 use crate::solver::core::traits::Settings;
 use derive_builder::Builder;
-use alloc::format;
-use alloc::string::String;
-use crate::alloc::string::ToString;
+use crate::types::*;
 
 #[cfg(feature = "serde")]
 use serde::{de::DeserializeOwned, Deserialize, Serialize};
@@ -12,7 +10,7 @@ use serde::{de::DeserializeOwned, Deserialize, Serialize};
 
 #[derive(Builder, Debug, Clone)]
 #[builder(no_std)]
-#[builder(build_fn(validate = "Self::validate"))]
+//#[builder(build_fn(validate = "Self::validate"))]
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 //#[serde(bound = "T: Serialize + DeserializeOwned")]
 pub struct DefaultSettings<T: FloatT> {
@@ -113,8 +111,8 @@ pub struct DefaultSettings<T: FloatT> {
     pub direct_kkt_solver: bool,
 
     ///direct linear solver (e.g. "qdldl")
-    #[builder(default = r#""qdldl".to_string()"#)]
-    pub direct_solve_method: String,
+    //#[builder(default = r#""qdldl".to_string()"#)]
+    //pub direct_solve_method: String,
 
     ///enable KKT static regularization
     #[builder(default = "true")]
@@ -218,8 +216,9 @@ impl<T> DefaultSettingsBuilder<T>
 where
     T: FloatT,
 {
-    pub fn validate(&self) -> Result<(), String> {
+    pub fn validate(&self) -> Result<(), ()> {
         // check that the direct solve method is valid
+        /*
         if let Some(ref direct_solve_method) = self.direct_solve_method {
             validate_direct_solve_method(direct_solve_method.as_str())?;
         }
@@ -234,6 +233,8 @@ where
             )?;
         }
 
+         */
+
         Ok(())
     }
 }
@@ -246,8 +247,8 @@ impl<T> DefaultSettings<T>
 where
     T: FloatT,
 {
-    pub fn validate(&self) -> Result<(), String> {
-        validate_direct_solve_method(&self.direct_solve_method)?;
+    pub fn validate(&self) -> Result<(), ()> {
+        //validate_direct_solve_method(&self.direct_solve_method)?;
 
         // check that the chordal decomposition merge method is valid
         #[cfg(feature = "sdp")]
@@ -261,7 +262,9 @@ where
 // individual validation functions go here
 // ---------------------------------------------------------
 
-fn validate_direct_solve_method(direct_solve_method: &str) -> Result<(), String> {
+fn validate_direct_solve_method(direct_solve_method: &str) -> Result<(), ()> {
+    Ok(())
+    /*
     match direct_solve_method {
         "qdldl" => Ok(()),
         #[cfg(feature = "faer-sparse")]
@@ -271,12 +274,14 @@ fn validate_direct_solve_method(direct_solve_method: &str) -> Result<(), String>
             direct_solve_method
         )),
     }
+
+     */
 }
 
 #[cfg(feature = "sdp")]
 fn validate_chordal_decomposition_merge_method(
     chordal_decomposition_merge_method: &str,
-) -> Result<(), String> {
+) -> Result<(), ()> {
     match chordal_decomposition_merge_method {
         "none" => Ok(()),
         "parent_child" => Ok(()),

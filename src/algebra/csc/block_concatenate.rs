@@ -2,7 +2,7 @@ use crate::algebra::hvcat_dim_check;
 use crate::algebra::matrix_traits::ShapedMatrix;
 use crate::algebra::MatrixConcatenationError;
 use core::cmp::max;
-use alloc::vec;
+use crate::types::*;
 
 use crate::algebra::{BlockConcatenate, CscMatrix, FloatT, MatrixShape};
 

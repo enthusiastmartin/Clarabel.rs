@@ -5,8 +5,7 @@ use crate::{
     algebra::*,
     solver::core::{traits::Solution, SolverStatus},
 };
-use alloc::vec::Vec;
-use alloc::vec;
+use crate::types::*;
 
 /// Standard-form solver type implementing the [`Solution`](crate::solver::core::traits::Solution) trait
 #[derive(Debug)]

@@ -1,8 +1,7 @@
 use super::*;
 use crate::algebra::*;
 use itertools::izip;
-use alloc::vec::Vec;
-use alloc::vec;
+use crate::types::*;
 
 // -------------------------------------
 // Second order Cone

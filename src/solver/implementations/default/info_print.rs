@@ -1,3 +1,4 @@
+/*
 #![cfg(feature = "std")]
 
 #[cfg(feature = "sdp")]
@@ -388,3 +389,6 @@ fn _exp_str_reformat(mut thestr: String) -> String {
     thestr.insert_str(eidx + shift, chars);
     thestr
 }
+
+
+ */

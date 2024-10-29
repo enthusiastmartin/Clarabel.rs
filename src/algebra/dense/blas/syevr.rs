@@ -1,8 +1,7 @@
 #![allow(non_snake_case)]
 
 use crate::algebra::*;
-use alloc::vec::Vec;
-use alloc::vec;
+use crate::types::*;
 
 pub(crate) struct EigEngine<T> {
     /// Computed eigenvalues in ascending order

@@ -7,9 +7,7 @@ use crate::solver::core::{
 };
 
 use crate::algebra::*;
-use alloc::boxed::Box;
-use alloc::vec::Vec;
-use alloc::vec;
+use crate::types::*;
 
 // We require Send here to allow pyo3 builds to share
 // solver objects between threads.

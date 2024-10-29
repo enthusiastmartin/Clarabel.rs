@@ -2,8 +2,7 @@ use super::*;
 use crate::algebra::triangular_number;
 use core::iter::zip;
 use core::ops::Range;
-use alloc::vec::Vec;
-use alloc::collections::BTreeMap;
+use crate::types::*;
 
 // -------------------------------------
 // default composite cone type

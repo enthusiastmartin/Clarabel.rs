@@ -55,8 +55,13 @@
 //!
 #![allow(confusable_idents)]
 
-#![cfg_attr(not(feature = "std"), no_std)]
+#![no_std]
 
+extern crate sp_io;
+
+//#![cfg_attr(not(feature = "std"), no_std)]
+
+#[cfg(any(feature = "alloc"))]
 extern crate alloc;
 
 //Rust hates greek characters
@@ -74,3 +79,4 @@ pub mod python;
 
 #[cfg(feature = "julia")]
 pub mod julia;
+mod types;

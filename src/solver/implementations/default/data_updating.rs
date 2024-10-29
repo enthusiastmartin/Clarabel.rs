@@ -4,7 +4,7 @@ use crate::algebra::*;
 use core::iter::Zip;
 use core::slice::Iter;
 use thiserror_no_std::Error;
-use alloc::vec::Vec;
+use crate::types::*;
 
 /// Error type returned by user data update utilities, e.g. [`check_format`](crate::algebra::CscMatrix::check_format) utility.
 #[derive(Error, Debug)]

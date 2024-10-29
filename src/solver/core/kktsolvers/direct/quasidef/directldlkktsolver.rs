@@ -8,9 +8,7 @@ use super::*;
 use crate::solver::core::kktsolvers::KKTSolver;
 use crate::solver::core::{cones::*, CoreSettings};
 use core::iter::zip;
-use alloc::boxed::Box;
-use alloc::vec::Vec;
-use alloc::vec;
+use crate::types::*;
 
 // -------------------------------------
 // KKTSolver using direct LDL factorisation
@@ -346,6 +344,10 @@ where
     let ldlptr: LDLConstructor<T>;
     let kktshape: MatrixTriangle;
 
+
+    kktshape = QDLDLDirectLDLSolver::<T>::required_matrix_shape();
+    ldlptr = |M, D, S| Box::new(QDLDLDirectLDLSolver::<T>::new(M, D, S));
+    /*
     match settings.direct_solve_method.as_str() {
         "qdldl" => {
             kktshape = QDLDLDirectLDLSolver::<T>::required_matrix_shape();
@@ -360,6 +362,8 @@ where
             panic! {"Unrecognized LDL solver type"};
         }
     }
+
+     */
     (kktshape, ldlptr)
 }
 

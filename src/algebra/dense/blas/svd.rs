@@ -3,7 +3,7 @@
 use crate::algebra::*;
 use core::cmp::min;
 use core::iter::zip;
-use alloc::vec::Vec;
+use crate::types::*;
 
 #[derive(PartialEq, Eq)]
 #[allow(dead_code)] //QRDecomposition is not used yet

@@ -1,6 +1,6 @@
 use crate::algebra::*;
 use core::ops::{Index, IndexMut};
-use alloc::vec::Vec;
+use crate::types::*;
 
 // core dense matrix type for owned and borrowed matrices
 #[derive(Debug, Clone, PartialEq)]

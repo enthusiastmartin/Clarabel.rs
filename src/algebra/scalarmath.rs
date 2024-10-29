@@ -1,4 +1,5 @@
 use super::{FloatT, ScalarMath};
+use num_traits::Float;
 
 impl<T: FloatT> ScalarMath for T {
     fn clip(&self, min_thresh: Self, max_thresh: Self) -> Self {

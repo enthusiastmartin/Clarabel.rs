@@ -5,8 +5,7 @@ use crate::algebra::triangular_number;
 #[cfg(feature = "serde")]
 use serde::{Deserialize, Serialize};
 
-use alloc::vec::Vec;
-use alloc::vec;
+use crate::types::*;
 
 // ---------------------------------------------------
 // We define some machinery here for enumerating the

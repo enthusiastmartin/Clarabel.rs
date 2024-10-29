@@ -4,8 +4,7 @@ use core::cmp::{max, min};
 use derive_builder::Builder;
 use core::iter::zip;
 use thiserror_no_std::Error;
-use alloc::vec::Vec;
-use alloc::vec;
+use crate::types::*;
 
 /// Error codes returnable from [`QDLDLFactorisation`](QDLDLFactorisation) factor operations
 

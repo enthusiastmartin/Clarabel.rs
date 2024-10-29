@@ -2,8 +2,7 @@ use super::*;
 use crate::algebra::*;
 use itertools::izip;
 use core::iter::zip;
-use alloc::vec::Vec;
-use alloc::vec;
+use crate::types::*;
 
 // -------------------------------------
 // Nonnegative Cone

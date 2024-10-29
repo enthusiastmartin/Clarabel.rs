@@ -122,6 +122,7 @@ pub struct Solver<D, V, R, K, C, I, SO, SE> {
     pub timers: Option<Timers>,
 }
 
+/*
 #[cfg(feature = "std")]
 fn _print_banner(is_verbose: bool) -> std::io::Result<()> {
     if !is_verbose {
@@ -160,6 +161,8 @@ fn _print_banner(is_verbose: bool) -> std::io::Result<()> {
     )?;
     std::io::Result::Ok(())
 }
+
+ */
 
 // ---------------------------------
 // IPSolver trait and its standard implementation.

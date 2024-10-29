@@ -2,8 +2,7 @@
 use super::*;
 use crate::algebra::*;
 use crate::solver::core::traits::Residuals;
-use alloc::vec::Vec;
-use alloc::vec;
+use crate::types::*;
 
 // ---------------
 // Residuals type for default problem format

@@ -1,7 +1,7 @@
 use super::{FloatT, ScalarMath, VectorMath};
 use itertools::izip;
 use core::iter::zip;
-use alloc::vec::Vec;
+use crate::types::*;
 
 impl<T: FloatT> VectorMath<T> for [T] {
     fn copy_from(&mut self, src: &[T]) -> &mut Self {

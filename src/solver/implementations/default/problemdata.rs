@@ -8,8 +8,7 @@ use crate::solver::core::{
     traits::ProblemData,
 };
 use crate::solver::SupportedConeT;
-use alloc::vec::Vec;
-use alloc::vec;
+use crate::types::*;
 
 #[cfg(feature = "sdp")]
 use crate::solver::chordal::ChordalInfo;

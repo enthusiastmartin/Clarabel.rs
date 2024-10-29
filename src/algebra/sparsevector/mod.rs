@@ -2,7 +2,7 @@
 
 use num_traits::Num;
 use core::iter::zip;
-use alloc::vec::Vec;
+use crate::types::*;
 
 /// Sparse vector type (internal use only at present)
 
